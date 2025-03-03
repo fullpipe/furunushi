@@ -1,7 +1,26 @@
-# Tauri + Angular
+Template created! To get started run:
 
-This template should help get you started developing with Tauri and Angular.
+```sh
+cd furunushi
+npm install
+npm run tauri android init
+npm run tauri ios init
+```
 
-## Recommended IDE Setup
+For Desktop development, run:
 
-[VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer) + [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template).
+```sh
+npm run tauri dev
+```
+
+For Android development, run:
+
+```sh
+npm run tauri android dev
+```
+
+For iOS development, run:
+
+```sh
+npm run tauri ios dev
+```
