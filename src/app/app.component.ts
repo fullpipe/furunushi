@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { Subject, merge, debounceTime, tap, distinctUntilChanged, fromEvent } from 'rxjs';
+import { Subject, merge, debounceTime, tap, distinctUntilChanged, fromEvent, map, of } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +12,10 @@ import { Subject, merge, debounceTime, tap, distinctUntilChanged, fromEvent } fr
 export class AppComponent {
   private reset$ = new Subject<boolean>();
   public readonly isActive$ = merge(
-    fromEvent(document, 'mousemove'),
-    fromEvent(document, 'touchstart'),
-    this.reset$.pipe(debounceTime(5000))
+    fromEvent(document, 'mousemove').pipe(map(() => true)),
+    fromEvent(document, 'touchstart').pipe(map(() => true)),
+    this.reset$.pipe(debounceTime(5000)),
+    of(true)
   ).pipe(
     tap(() => this.reset$.next(false)),
     distinctUntilChanged()
