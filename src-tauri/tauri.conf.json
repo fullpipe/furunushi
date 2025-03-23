@@ -13,8 +13,10 @@
     "windows": [
       {
         "title": "furunushi",
-        "width": 800,
-        "height": 600
+        "width": 500,
+        "height": 800,
+        "minWidth": 500,
+        "minHeight": 800
       }
     ],
     "security": {
@@ -24,12 +26,6 @@
   "bundle": {
     "active": true,
     "targets": "all",
-    "icon": [
-      "icons/32x32.png",
-      "icons/128x128.png",
-      "icons/128x128@2x.png",
-      "icons/icon.icns",
-      "icons/icon.ico"
-    ]
+    "icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"]
   }
 }
