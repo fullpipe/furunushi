@@ -1,5 +1,4 @@
 .container {
-  //   width: calc(100% - 20px);
   position: relative;
 }
 
@@ -9,8 +8,6 @@
   justify-content: space-between;
   min-width: 200px;
   position: relative;
-
-  //   width: calc(100% + 20px);
 
   div {
     width: 1px;
@@ -29,9 +26,9 @@
 .pin {
   position: absolute;
   margin-left: calc(50% - 1px);
-  left: 0;
-  bottom: 0;
 
+  top: 50%;
+  transform: translateY(-50%);
   height: 50px;
   width: 2px;
   background: hotpink;
