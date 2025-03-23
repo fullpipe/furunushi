@@ -4,7 +4,7 @@ import { Note } from '../bindings/Note';
 import listen from '../tools/listen';
 import { invoke } from '@tauri-apps/api/core';
 
-const SMOOTH_FACTOR = 0.25;
+export const SMOOTH_FACTOR = 0.25;
 
 @Injectable({
   providedIn: 'root',
@@ -41,7 +41,7 @@ export class TunerService {
         this.subscriptionsCount++;
       },
       unsubscribe: () => {
-        this.subscriptionsCount++;
+        this.subscriptionsCount--;
         if (this.subscriptionsCount === 0) {
           invoke('pd_pause');
         }
