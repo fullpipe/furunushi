@@ -1,0 +1,21 @@
+<div class="tuning">
+  <label for="tuning">Tuning: </label>
+  <input id="tuning" type="number" step="1" min="300" max="500" required [(ngModel)]="tuning" />
+</div>
+<!-- <app-deviation [deviation]="10"></app-deviation> -->
+@let note = note$ | async;
+<div class="note">
+  @if (note) {
+  <div class="name">
+    <app-note [note]="note"></app-note>
+  </div>
+  <app-deviation [deviation]="note.deviation"></app-deviation>
+  } @else {
+  <div class="name"><app-note></app-note></div>
+  <app-deviation [deviation]="0" [active]="false"></app-deviation>
+  }
+</div>
+
+<!-- {{ note | json }} -->
+
+<!-- <app-deviation [deviation]="20"></app-deviation> -->

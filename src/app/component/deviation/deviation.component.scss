@@ -1,0 +1,40 @@
+.container {
+  //   width: calc(100% - 20px);
+  position: relative;
+}
+
+.bars {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 200px;
+  position: relative;
+
+  //   width: calc(100% + 20px);
+
+  div {
+    width: 1px;
+    height: 30px;
+    background: gray;
+
+    &.short {
+      height: 25px;
+    }
+    &.tune {
+      height: 40px;
+    }
+  }
+}
+
+.pin {
+  position: absolute;
+  margin-left: calc(50% - 1px);
+  left: 0;
+  bottom: 0;
+
+  height: 50px;
+  width: 2px;
+  background: hotpink;
+
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

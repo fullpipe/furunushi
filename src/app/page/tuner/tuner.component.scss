@@ -1,0 +1,41 @@
+:host {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  height: 100vh;
+
+  display: grid;
+  grid-row: 1;
+  grid-column: 1;
+  //   grid-template-rows: min-content;
+  grid-template-rows: 2fr 3fr 2fr;
+}
+
+.note {
+  justify-self: center;
+  align-self: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .name {
+    font-size: 10em;
+    padding: 0.063em;
+  }
+}
+
+.tuning {
+  justify-self: center;
+  align-self: end;
+  input {
+    font-size: 1.2em;
+    padding: 0.62em;
+
+    border: 1px cadetblue solid;
+    border-radius: 0.62em;
+    outline: none;
+  }
+}

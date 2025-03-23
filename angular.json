@@ -5,8 +5,14 @@
   "cli": {
     "analytics": false
   },
+
   "projects": {
     "furunushi": {
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
@@ -20,7 +26,8 @@
             "browser": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/assets"]
+            "assets": ["src/assets"],
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {

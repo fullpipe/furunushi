@@ -1,0 +1,6 @@
+@let n = note(); @if (n) {@switch (n.name) { @case ("Cs") {C<span class="sig">&#9839;</span>} @case ("Ds") {D<span
+  class="sig"
+  >&#9839;</span
+>} @case ("Fs") {F<span class="sig">&#9839;</span>} @case ("As") {A<span class="sig">&#9839;</span>} @case ("Gs")
+{G<span class="sig">&#9839;</span>} @default {{{ n.name }}} }<span class="octave">{{ n.octave }}</span
+>} @else {-}

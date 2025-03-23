@@ -1,0 +1,19 @@
+:host {
+  font-size: inherit;
+  position: relative;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.sig {
+  font-size: 0.62em;
+  position: absolute;
+  top: 0;
+  right: -0.09em;
+}
+
+.octave {
+  font-size: 0.38em;
+  margin-left: 0.02em;
+  opacity: 0.62;
+}
