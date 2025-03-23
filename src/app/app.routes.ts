@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { TunerComponent } from './page/tuner/tuner.component';
 import { MirrorComponent } from './page/mirror/mirror.component';
+import { DroneComponent } from './page/drone/drone.component';
 
 export const routes: Routes = [
   {
@@ -10,6 +11,10 @@ export const routes: Routes = [
   {
     path: 'tuner',
     component: TunerComponent,
+  },
+  {
+    path: 'drone',
+    component: DroneComponent,
   },
   {
     path: '**',
