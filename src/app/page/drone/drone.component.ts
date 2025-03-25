@@ -6,10 +6,11 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { JsonPipe } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { DroneService } from '../../service/drone.service';
+import { NoteInputComponent } from '../../component/note-input/note-input.component';
 
 @Component({
   selector: 'app-drone',
-  imports: [FormsModule, JsonPipe, ReactiveFormsModule],
+  imports: [FormsModule, JsonPipe, ReactiveFormsModule, NoteInputComponent],
   templateUrl: './drone.component.html',
   styleUrl: './drone.component.scss',
 })
