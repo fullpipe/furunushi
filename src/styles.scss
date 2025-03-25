@@ -6,4 +6,16 @@ body {
   font-family: 'Anonymous Pro', monospace;
   font-weight: 400;
   font-style: normal;
+  cursor: default;
+  user-select: none;
+}
+
+a {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+button {
+  cursor: pointer;
 }

@@ -16,9 +16,9 @@ export class DroneComponent {
   play() {
     invoke('drone_play', {
       d: {
-        midi: 55,
+        midi: 53,
         tuning: 440.0,
-        instrument: 'Organ',
+        instrument: 'Sine',
         chord: 'Minor',
         chorus: true,
       } as Drone,
