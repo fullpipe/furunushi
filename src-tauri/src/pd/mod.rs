@@ -15,14 +15,12 @@ use ts_rs::TS;
 
 pub mod commands;
 
-const SIZE: usize = 1024 * 8;
-const PADDING: usize = SIZE / 2;
 const POWER_THRESHOLD: f32 = 2.0;
 const CLARITY_THRESHOLD: f32 = 0.6;
 const DEFAULT_BASE: f32 = 440.0;
 
-#[ts(export, export_to = "../../src/app/bindings/")]
 #[derive(Debug, Clone, Copy, Serialize, TS)]
+#[ts(export, export_to = "../../src/app/bindings/")]
 pub struct Note {
     name: NoteName,
     octave: u32,
@@ -31,8 +29,8 @@ pub struct Note {
     deviation: i32,
 }
 
-#[ts(export, export_to = "../../src/app/bindings/")]
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, TS)]
+#[ts(export, export_to = "../../src/app/bindings/")]
 enum NoteName {
     C,
     Cs,
@@ -158,14 +156,12 @@ pub fn init(controls: Receiver<Control>, sender: Sender<Note>) -> Result<()> {
         error!("an error occurred on stream: {}", err);
     };
 
-    // let bb: WavWriterHandle = Mutex::new(ConstGenericRingBuffer::<f32, SIZE>::new());
     let sample_rate: usize = config.sample_rate().0.try_into()?;
     let bb: WavWriterHandle = Mutex::new(AllocRingBuffer::<f32>::new(sample_rate / 8));
     let base = Arc::new(Mutex::new(DEFAULT_BASE));
-    // let (sender, receiver) = bounded(0);
     let dbase = Arc::clone(&base);
 
-    let stream = match config.sample_format() {
+    let stream: Stream = match config.sample_format() {
         cpal::SampleFormat::I8 => device.build_input_stream(
             &config.into(),
             move |data, _: &_| write_input_data::<i8, i8>(data, &bb, sample_rate, &dbase, &sender),
