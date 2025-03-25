@@ -12,8 +12,8 @@ pub fn sine_minor_chorus(
     sample_rate: f64,
 ) -> Box<dyn AudioUnit> {
     let c = sine_hz(midi_hz_tuning(midi as f32, tuning as i64))
-        + 0.5 * sine_hz(midi_hz_tuning((midi + 3) as f32, tuning as i64))
-        + 0.25 * sine_hz(midi_hz_tuning((midi + 7) as f32, tuning as i64));
+        & 0.5 * sine_hz(midi_hz_tuning((midi + 3) as f32, tuning as i64))
+        & 0.25 * sine_hz(midi_hz_tuning((midi + 7) as f32, tuning as i64));
 
     let c = c * var(&volume);
     let c = c >> pan(0.0);
@@ -27,8 +27,8 @@ pub fn sine_minor_chorus(
 
 pub fn sine_minor(midi: u32, tuning: f32, volume: &Shared, sample_rate: f64) -> Box<dyn AudioUnit> {
     let c = sine_hz(midi_hz_tuning(midi as f32, tuning as i64))
-        + 0.5 * sine_hz(midi_hz_tuning((midi + 3) as f32, tuning as i64))
-        + 0.25 * sine_hz(midi_hz_tuning((midi + 7) as f32, tuning as i64));
+        & 0.5 * sine_hz(midi_hz_tuning((midi + 3) as f32, tuning as i64))
+        & 0.25 * sine_hz(midi_hz_tuning((midi + 7) as f32, tuning as i64));
 
     let c = c * var(&volume);
     let mut c = c >> pan(0.0);

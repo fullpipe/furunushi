@@ -1,5 +1,45 @@
-<p>drone works!</p>
-Выбор ноты с октавой tuning major | pure | minor
+<form [formGroup]="droneForm">
+  <div class="field">
+    <label class="label">Midi:</label>
+    <input class="input" type="number" step="1" min="1" max="84" required formControlName="midi" name="midi" />
+  </div>
+  <div class="field">
+    <label class="label">Instrument:</label>
+    <div class="radios">
+      <label class="radio">
+        <input type="radio" name="instrument" value="Organ" formControlName="instrument" />
+        Organ
+      </label>
+      <label class="radio">
+        <input type="radio" name="instrument" value="Sine" formControlName="instrument" />
+        Sine
+      </label>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Chord:</label>
+    <div class="radios">
+      <label class="radio">
+        <input type="radio" name="chord" value="Minor" formControlName="chord" />
+        Minor
+      </label>
+      <label class="radio">
+        <input type="radio" name="chord" value="Pure" formControlName="chord" />
+        Pure
+      </label>
+      <label class="radio">
+        <input type="radio" name="chord" value="Major" formControlName="chord" />
+        Major
+      </label>
+    </div>
+  </div>
+  <label class="checkbox">
+    <input type="checkbox" formControlName="chorus" name="chorus" />
+    chorus?
+  </label>
+</form>
 
-<p><a (click)="play()">play</a></p>
-<p><a (click)="stop()">stop</a></p>
+<div class="actions">
+  <button (click)="play()" [disabled]="drone.playing()">play</button>
+  <button (click)="stop()" [disabled]="!drone.playing()">stop</button>
+</div>

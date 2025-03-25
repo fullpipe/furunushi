@@ -1,11 +1,11 @@
 import { Component, effect, signal } from '@angular/core';
-import { invoke } from '@tauri-apps/api/core';
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DeviationComponent } from '../../component/deviation/deviation.component';
 import { NoteComponent } from '../../component/note/note.component';
-import { LazyStore } from '@tauri-apps/plugin-store';
 import { TunerService } from '../../service/tuner.service';
+import { DroneService } from '../../service/drone.service';
+import { TuningService } from '../../service/tuning.service';
 
 @Component({
   selector: 'app-tuner',
@@ -14,23 +14,15 @@ import { TunerService } from '../../service/tuner.service';
   styleUrl: './tuner.component.scss',
 })
 export class TunerComponent {
-  tuning = signal(440);
+  tuning = signal(this.tuningService.tuning());
 
-  constructor(private store: LazyStore, public tuner: TunerService) {
-    this.store.get<number>('tuning').then((oldTuning) => {
-      if (oldTuning) {
-        this.tuning.set(oldTuning);
-      }
-    });
-
-    let init = true;
+  constructor(public tuner: TunerService, private drone: DroneService, private tuningService: TuningService) {
     effect(() => {
-      invoke('pd_base', { f: this.tuning() });
-
-      if (!init) {
-        this.store.set('tuning', this.tuning());
-      }
-      init = false;
+      this.tuningService.set(this.tuning());
     });
+  }
+
+  async ngOnInit() {
+    await this.drone.stop();
   }
 }

@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import { effect, Injectable } from '@angular/core';
 import { Subject, merge, debounceTime, tap, pairwise, map, distinctUntilChanged } from 'rxjs';
 import { Note } from '../bindings/Note';
 import listen from '../tools/listen';
 import { invoke } from '@tauri-apps/api/core';
+import { TuningService } from './tuning.service';
 
 export const SMOOTH_FACTOR = 0.25;
 
@@ -49,5 +50,9 @@ export class TunerService {
     })
   );
 
-  constructor() {}
+  constructor(private tuning: TuningService) {
+    effect(() => {
+      invoke('pd_base', { f: this.tuning.tuning() });
+    });
+  }
 }

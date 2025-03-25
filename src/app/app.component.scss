@@ -24,5 +24,37 @@ nav {
     &.active {
       text-decoration: underline;
     }
+
+    span {
+      display: none;
+    }
+
+    &.progress {
+      span {
+        display: inline-block;
+        content: '';
+        width: 0.62em;
+        height: 0.62em;
+
+        vertical-align: middle;
+        margin-right: 0.62em;
+
+        border-radius: 100px;
+        background: darkcyan;
+        box-shadow: 0 0 15px darkcyan;
+        animation: grow 1.6s ease-in-out infinite;
+
+        @keyframes grow {
+          0%,
+          40%,
+          100% {
+            transform: scale(1);
+          }
+          20% {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
   }
 }

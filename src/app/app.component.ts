@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { Subject, merge, debounceTime, tap, distinctUntilChanged, fromEvent, map, of } from 'rxjs';
+import { DroneService } from './service/drone.service';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,8 @@ export class AppComponent {
     tap(() => this.reset$.next(false)),
     distinctUntilChanged()
   );
+
+  constructor(public drone: DroneService) {}
 
   ngOnInit(): void {}
 }

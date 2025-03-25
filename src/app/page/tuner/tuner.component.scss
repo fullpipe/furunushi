@@ -28,11 +28,17 @@
 .tuning {
   justify-self: center;
   align-self: end;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   input {
+    width: auto;
     font-size: 1.2em;
     padding: 0.62em;
 
-    border: 1px cadetblue solid;
+    border: 1px darkcyan solid;
     border-radius: 0.62em;
     outline: none;
   }

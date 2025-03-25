@@ -1,0 +1,35 @@
+:host {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+form {
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+
+  input {
+    width: auto;
+    font-size: 1em;
+    padding: 0.38em;
+
+    border: 1px darkcyan solid;
+    border-radius: 0.38em;
+    outline: none;
+  }
+
+  .field {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 1em;
+}
