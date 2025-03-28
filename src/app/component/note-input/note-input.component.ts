@@ -3,9 +3,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { NoteComponent } from '../note/note.component';
 import { NoteNameIdx } from '../../bindings/NoteNameIdx';
 
-const MIN = 12;
-const MAX = 88;
-
 @Component({
   selector: 'app-note-input',
   templateUrl: './note-input.component.html',
@@ -20,6 +17,9 @@ const MAX = 88;
   ],
 })
 export class NoteInputComponent implements ControlValueAccessor {
+  readonly MIN = 12;
+  readonly MAX = 88;
+
   midi = signal(49);
   note = computed(() => {
     const n = this.midi() % 12;
@@ -43,14 +43,14 @@ export class NoteInputComponent implements ControlValueAccessor {
 
   minus() {
     this.markAsTouched();
-    if (!this.disabled && this.midi() > MIN) {
+    if (!this.disabled && this.midi() > this.MIN) {
       this.midi.set(this.midi() - 1);
     }
   }
 
   plus() {
     this.markAsTouched();
-    if (!this.disabled && this.midi() < MAX) {
+    if (!this.disabled && this.midi() < this.MAX) {
       this.midi.set(this.midi() + 1);
     }
   }
