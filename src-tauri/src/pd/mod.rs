@@ -121,8 +121,8 @@ pub struct DetectorState {
 
 impl DetectorState {
     pub fn new() -> Self {
-        let (controls_sender, controls_receiver) = bounded(0);
-        let (data_sender, data_receiver) = bounded(0);
+        let (controls_sender, controls_receiver) = bounded(1);
+        let (data_sender, data_receiver) = bounded(1);
 
         return Self {
             controls_sender,
@@ -140,7 +140,7 @@ pub enum Control {
     Base(f32),
 }
 
-pub fn init(controls: Receiver<Control>, sender: Sender<Note>) -> Result<()> {
+pub async fn init(controls: Receiver<Control>, sender: Sender<Note>) -> Result<()> {
     let host: cpal::Host = cpal::default_host();
     let device = host
         .default_input_device()
