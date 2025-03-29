@@ -41,12 +41,20 @@ pub fn run() -> Result<()> {
         .build(tauri::generate_context!())
         .expect("error while running tauri application");
 
-    std::thread::spawn(move || {
-        pd::init(controls_receiver, data_sender);
+    #[cfg(target_os = "ios")]
+    {
+        use avfaudio::session::{AVAudioSession, Category};
+        let shared_instance = AVAudioSession::shared_instance();
+        shared_instance.set_category(Category::play_and_record());
+        shared_instance.activate();
+    }
+
+    std::thread::spawn(move || match pd::init(controls_receiver, data_sender) {
+        Ok(()) => info!("pd::init OK "),
+        Err(e) => error!("pd::init: {}", e),
     });
-    std::thread::spawn(move || {
-        drone::init(drone_controls_receiver);
-    });
+
+    tauri::async_runtime::spawn(drone::init(drone_controls_receiver.clone()));
 
     app.run(move |app_handle, event| match event {
         tauri::RunEvent::Ready => {
