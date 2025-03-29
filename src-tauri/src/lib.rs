@@ -2,6 +2,7 @@ mod drone;
 mod pd;
 
 use anyhow::Result;
+use log::{error, info};
 use tauri::Manager;
 
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
@@ -20,9 +21,9 @@ pub fn run() -> Result<()> {
     let drone_controls_receiver = drone_state.controls_receiver.clone();
 
     let app = tauri::Builder::default()
-        .plugin(tauri_plugin_store::Builder::new().build())
         .plugin(tauri_plugin_log::Builder::new().build())
         .plugin(tauri_plugin_opener::init())
+        .plugin(tauri_plugin_store::Builder::new().build())
         .setup(|app| {
             app.manage(detector_state);
             app.manage(drone_state);
@@ -49,10 +50,11 @@ pub fn run() -> Result<()> {
         shared_instance.activate();
     }
 
-    std::thread::spawn(move || match pd::init(controls_receiver, data_sender) {
-        Ok(()) => info!("pd::init OK "),
-        Err(e) => error!("pd::init: {}", e),
-    });
+    // std::thread::spawn(move || match pd::init(controls_receiver, data_sender) {
+    //     Ok(()) => info!("pd::init OK "),
+    //     Err(e) => error!("pd::init: {}", e),
+    // });
+    tauri::async_runtime::spawn(pd::init(controls_receiver, data_sender));
 
     tauri::async_runtime::spawn(drone::init(drone_controls_receiver.clone()));
 

@@ -22,7 +22,7 @@ pub enum Control {
     Volume(f32),
 }
 
-pub fn init(controls: Receiver<Control>) -> Result<()> {
+pub async fn init(controls: Receiver<Control>) -> Result<()> {
     let host = cpal::default_host();
 
     let device = host

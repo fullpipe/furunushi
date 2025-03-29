@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { TunerComponent } from './page/tuner/tuner.component';
 import { MirrorComponent } from './page/mirror/mirror.component';
 import { DroneComponent } from './page/drone/drone.component';
+import { TestComponent } from './page/test/test.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
     path: 'drone',
     component: DroneComponent,
   },
+  // {
+  //   path: 'test',
+  //   component: TestComponent,
+  // },
   {
     path: '**',
     redirectTo: 'tuner',
