@@ -1,15 +1,10 @@
 <div class="tuning">
   <label for="tuning">Tuning: </label>
-  <input
-    class="input is-info is-large"
-    id="tuning"
-    type="number"
-    step="1"
-    min="300"
-    max="500"
-    required
-    [(ngModel)]="tuning"
-  />
+  <select class="input is-info is-large" id="tuning" required [(ngModel)]="tuning">
+    @for (item of selects; track item) {
+    <option value="{{ item }}">{{ item }}</option>
+    }
+  </select>
 </div>
 
 @let note = tuner.note$ | async;

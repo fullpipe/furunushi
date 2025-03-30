@@ -6,6 +6,7 @@ import { NoteComponent } from '../../component/note/note.component';
 import { TunerService } from '../../service/tuner.service';
 import { DroneService } from '../../service/drone.service';
 import { TuningService } from '../../service/tuning.service';
+import { platform } from '@tauri-apps/plugin-os';
 
 @Component({
   selector: 'app-tuner',
@@ -14,7 +15,14 @@ import { TuningService } from '../../service/tuning.service';
   styleUrl: './tuner.component.scss',
 })
 export class TunerComponent {
+  MIN = 300;
+  MAX = 500;
+
   tuning = signal(this.tuningService.tuning());
+  platform = platform();
+  selects = Array(this.MAX - this.MIN)
+    .fill(this.MIN)
+    .map((x, y) => x + y);
 
   constructor(public tuner: TunerService, private drone: DroneService, private tuningService: TuningService) {
     effect(() => {

@@ -13,7 +13,7 @@ export class TuningService {
   constructor(private store: LazyStore) {}
 
   async init() {
-    await this._tuning.set((await this.store.get<number>('tuning')) || DEFAULT_TUNING);
+    await this._tuning.set(Number(await this.store.get<number>('tuning')) || DEFAULT_TUNING);
   }
 
   async set(tuning: number) {

@@ -33,6 +33,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+
   input {
     width: auto;
     font-size: 1.2em;
@@ -41,5 +42,9 @@
     border: 1px darkcyan solid;
     border-radius: 0.62em;
     outline: none;
+  }
+
+  select {
+    font-size: 1.2em;
   }
 }
