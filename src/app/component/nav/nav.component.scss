@@ -9,6 +9,13 @@ nav {
 
   transition: all 0.4s ease-out;
   opacity: 1;
+
+  &.ios {
+    a {
+      padding-bottom: 1em;
+    }
+  }
+
   &.inactive {
     opacity: 0.2;
   }

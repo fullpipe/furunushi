@@ -3,6 +3,7 @@ import { Subject, merge, fromEvent, map, debounceTime, of, tap, distinctUntilCha
 import { DroneService } from '../../service/drone.service';
 import { RouterModule } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
+import { platform } from '@tauri-apps/plugin-os';
 
 @Component({
   selector: 'app-nav',
@@ -11,6 +12,7 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './nav.component.scss',
 })
 export class NavComponent {
+  platform = platform();
   private reset$ = new Subject<boolean>();
   public readonly isActive$ = merge(
     fromEvent(document, 'mousemove').pipe(map(() => true)),

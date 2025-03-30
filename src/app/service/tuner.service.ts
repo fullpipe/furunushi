@@ -52,7 +52,7 @@ export class TunerService {
 
   constructor(private tuning: TuningService) {
     effect(() => {
-      invoke('pd_base', { f: this.tuning.tuning() });
+      invoke('pd_base', { f: Number(this.tuning.tuning()) });
     });
   }
 }

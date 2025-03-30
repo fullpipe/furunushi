@@ -1,11 +1,10 @@
 :host {
-  height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1em;
+  height: 100dvh;
 }
 
 form {

@@ -1,4 +1,4 @@
-<nav [class.inactive]="!(isActive$ | async)">
+<nav [class.inactive]="!(isActive$ | async)" [class]="platform">
   <a [routerLink]="['/tuner']" routerLinkActive="active">tuner</a>
   <a [routerLink]="['/mirror']" routerLinkActive="active">mirror</a>
   <a [routerLink]="['/drone']" routerLinkActive="active" [class.progress]="drone.playing()"><span></span>drone</a>

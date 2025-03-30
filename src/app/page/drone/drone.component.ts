@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { invoke } from '@tauri-apps/api/core';
 import { Drone } from '../../bindings/Drone';
-import { LazyStore } from '@tauri-apps/plugin-store';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { JsonPipe } from '@angular/common';
 import { Subscription } from 'rxjs';

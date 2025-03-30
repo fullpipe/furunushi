@@ -1,10 +1,9 @@
 :host {
-  height: 100vh;
-
   display: grid;
   grid-row: 1;
   grid-column: 1;
   grid-template-rows: 2fr 3fr 2fr;
+  height: 100dvh;
 }
 
 .note {
