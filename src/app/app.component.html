@@ -1,8 +1,4 @@
 <main class="container">
   <router-outlet></router-outlet>
-  <nav [class.inactive]="!(isActive$ | async)">
-    <a [routerLink]="['/tuner']" routerLinkActive="active">tuner</a>
-    <a [routerLink]="['/mirror']" routerLinkActive="active">mirror</a>
-    <a [routerLink]="['/drone']" routerLinkActive="active" [class.progress]="drone.playing()"><span></span>drone</a>
-  </nav>
+  <app-nav></app-nav>
 </main>
