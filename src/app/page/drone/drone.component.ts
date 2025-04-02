@@ -8,7 +8,7 @@ import { NoteInputComponent } from '../../component/note-input/note-input.compon
 
 @Component({
   selector: 'app-drone',
-  imports: [FormsModule, JsonPipe, ReactiveFormsModule, NoteInputComponent],
+  imports: [FormsModule, ReactiveFormsModule, NoteInputComponent],
   templateUrl: './drone.component.html',
   styleUrl: './drone.component.scss',
 })

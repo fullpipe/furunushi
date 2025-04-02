@@ -33,7 +33,6 @@
       "entitlements": "./Entitlements.plist"
     },
     "iOS": {
-      "minimumSystemVersion": "13.0",
       "frameworks": ["AudioToolbox", "CoreAudio", "AVFAudio"]
     }
   }

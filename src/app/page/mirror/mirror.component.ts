@@ -32,9 +32,7 @@ export class MirrorComponent implements OnDestroy {
       return;
     }
 
-    this.stream.getTracks().forEach(function (track) {
-      track.stop();
-    });
+    this.stream.getTracks().forEach((track) => track.stop());
   }
 
   async mirror() {}
