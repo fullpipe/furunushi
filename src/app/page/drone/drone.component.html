@@ -40,6 +40,9 @@
 </form>
 
 <div class="actions">
-  <button (click)="play()" [disabled]="drone.playing()">play</button>
-  <button (click)="stop()" [disabled]="!drone.playing()">stop</button>
+  @if (drone.playing()) {
+  <button (click)="stop()">stop</button>
+  } @else {
+  <button (click)="play()">play</button>
+  }
 </div>
