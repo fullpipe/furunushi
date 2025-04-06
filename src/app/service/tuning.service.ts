@@ -17,7 +17,7 @@ export class TuningService {
   }
 
   async set(tuning: number) {
-    await this._tuning.set(tuning);
+    await this._tuning.set(Number(tuning));
     await this.store.set('tuning', tuning);
   }
 }
