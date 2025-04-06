@@ -4,6 +4,12 @@ npm run tauri android init
 npm run tauri ios init
 ```
 
+Generate icons
+
+```sh
+cargo tauri icon src-tauri/icons/raw.png
+```
+
 For Desktop development, run:
 
 ```sh
