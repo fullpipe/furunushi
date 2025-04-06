@@ -1,7 +1,4 @@
-Template created! To get started run:
-
 ```sh
-cd furunushi
 npm install
 npm run tauri android init
 npm run tauri ios init
