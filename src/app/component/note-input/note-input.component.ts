@@ -1,7 +1,7 @@
-import { Component, computed, effect, signal } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { NoteComponent } from '../note/note.component';
-import { NoteNameIdx } from '../../bindings/NoteNameIdx';
+import {Component, computed, effect, signal} from '@angular/core';
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {NoteComponent} from '../note/note.component';
+import {NoteNameIdx} from '../../bindings/NoteNameIdx';
 
 @Component({
   selector: 'app-note-input',
@@ -31,7 +31,7 @@ export class NoteInputComponent implements ControlValueAccessor {
     };
   });
 
-  onChange = (_: number) => {};
+  onChange: (midi: number) => void = () => {};
   onTouched = () => {};
 
   touched = false;
@@ -59,11 +59,11 @@ export class NoteInputComponent implements ControlValueAccessor {
     this.midi.set(midi);
   }
 
-  registerOnChange(onChange: any) {
+  registerOnChange(onChange: (midi: number) => void) {
     this.onChange = onChange;
   }
 
-  registerOnTouched(onTouched: any) {
+  registerOnTouched(onTouched: () => void) {
     this.onTouched = onTouched;
   }
 

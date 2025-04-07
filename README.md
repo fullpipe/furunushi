@@ -99,6 +99,7 @@ At the moment rules are not strict. Welcome!
   - https://github.com/JorenSix/TarsosDSP/tree/master/core/src/main/java/be/tarsos/dsp/pitch
 - [ ] Pitch games
 - [ ] Localization into other languages?
+- [ ] Handle catch(console.error)
 
 ## License
 

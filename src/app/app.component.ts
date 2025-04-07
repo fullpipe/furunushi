@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { NavComponent } from './component/nav/nav.component';
+import {Component} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterModule, RouterOutlet} from '@angular/router';
+import {NavComponent} from './component/nav/nav.component';
 
 @Component({
   selector: 'app-root',
