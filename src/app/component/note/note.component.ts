@@ -1,5 +1,5 @@
-import { Component, input } from '@angular/core';
-import { Note } from '../../bindings/Note';
+import {Component, input} from '@angular/core';
+import {Note} from '../../bindings/Note';
 
 @Component({
   selector: 'app-note',
