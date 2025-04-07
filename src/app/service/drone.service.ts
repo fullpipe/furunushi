@@ -1,8 +1,8 @@
-import { effect, Injectable, signal } from '@angular/core';
-import { LazyStore } from '@tauri-apps/plugin-store';
-import { Drone } from '../bindings/Drone';
-import { invoke } from '@tauri-apps/api/core';
-import { TuningService } from './tuning.service';
+import {effect, Injectable, signal} from '@angular/core';
+import {LazyStore} from '@tauri-apps/plugin-store';
+import {Drone} from '../bindings/Drone';
+import {invoke} from '@tauri-apps/api/core';
+import {TuningService} from './tuning.service';
 
 export const DEFAULT_TUNING = 440.0;
 export const DEFAULT_DRONE = {
@@ -22,7 +22,10 @@ export class DroneService {
   public drone: Drone = DEFAULT_DRONE;
   public playing = this._playing.asReadonly();
 
-  constructor(private store: LazyStore, private tuning: TuningService) {
+  constructor(
+    private store: LazyStore,
+    private tuning: TuningService,
+  ) {
     effect(() => {
       this.drone.tuning = this.tuning.tuning();
     });
@@ -36,7 +39,7 @@ export class DroneService {
   async set(drone: Drone) {
     this.drone = drone;
     this.drone.tuning = this.tuning.tuning();
-    this.store.set('drone', this.drone);
+    await this.store.set('drone', this.drone);
 
     if (this.playing()) {
       await this.play();
@@ -44,7 +47,7 @@ export class DroneService {
   }
 
   async play() {
-    await invoke('drone_play', { drone: this.drone });
+    await invoke('drone_play', {drone: this.drone});
     this._playing.set(true);
   }
 

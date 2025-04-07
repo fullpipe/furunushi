@@ -1,4 +1,4 @@
-name: test
+name: Lint & Test
 
 on:
   push:
@@ -10,12 +10,24 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+  ts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: 'npm'
+      - name: install frontend dependencies
+        run: npm install
+      - name: lint
+        run: npx gts lint
+
   rust:
     runs-on: macos-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: Run tests
         working-directory: src-tauri
-        run: |
-          cargo test --verbose
+        run: cargo test

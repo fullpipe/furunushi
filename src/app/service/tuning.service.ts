@@ -1,5 +1,5 @@
-import { Injectable, signal } from '@angular/core';
-import { LazyStore } from '@tauri-apps/plugin-store';
+import {Injectable, signal} from '@angular/core';
+import {LazyStore} from '@tauri-apps/plugin-store';
 
 export const DEFAULT_TUNING = 440.0;
 
@@ -13,7 +13,9 @@ export class TuningService {
   constructor(private store: LazyStore) {}
 
   async init() {
-    await this._tuning.set(Number(await this.store.get<number>('tuning')) || DEFAULT_TUNING);
+    await this._tuning.set(
+      Number(await this.store.get<number>('tuning')) || DEFAULT_TUNING,
+    );
   }
 
   async set(tuning: number) {

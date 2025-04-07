@@ -1,9 +1,18 @@
-import { Component } from '@angular/core';
-import { Subject, merge, fromEvent, map, debounceTime, of, tap, distinctUntilChanged } from 'rxjs';
-import { DroneService } from '../../service/drone.service';
-import { RouterModule } from '@angular/router';
-import { AsyncPipe } from '@angular/common';
-import { platform } from '@tauri-apps/plugin-os';
+import {Component} from '@angular/core';
+import {
+  Subject,
+  merge,
+  fromEvent,
+  map,
+  debounceTime,
+  of,
+  tap,
+  distinctUntilChanged,
+} from 'rxjs';
+import {DroneService} from '../../service/drone.service';
+import {RouterModule} from '@angular/router';
+import {AsyncPipe} from '@angular/common';
+import {platform} from '@tauri-apps/plugin-os';
 
 @Component({
   selector: 'app-nav',
@@ -18,10 +27,10 @@ export class NavComponent {
     fromEvent(document, 'mousemove').pipe(map(() => true)),
     fromEvent(document, 'touchstart').pipe(map(() => true)),
     this.reset$.pipe(debounceTime(5000)),
-    of(true)
+    of(true),
   ).pipe(
     tap(() => this.reset$.next(false)),
-    distinctUntilChanged()
+    distinctUntilChanged(),
   );
 
   constructor(public drone: DroneService) {}

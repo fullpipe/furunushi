@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-mirror',
@@ -15,7 +15,7 @@ export class MirrorComponent implements OnDestroy {
     this.stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        frameRate: { ideal: 25, max: 30 },
+        frameRate: {ideal: 25, max: 30},
         autoGainControl: false,
         noiseSuppression: false,
         backgroundBlur: false,
@@ -32,7 +32,7 @@ export class MirrorComponent implements OnDestroy {
       return;
     }
 
-    this.stream.getTracks().forEach((track) => track.stop());
+    this.stream.getTracks().forEach(track => track.stop());
   }
 
   async mirror() {}
