@@ -26,7 +26,7 @@ Currently, only the **macOS** version is available for download. Get the latest 
 - Go to the [Releases](https://github.com/fullpipe/furunushi/releases) section.
 - Download the
   - `.dmg` for macOS
-  - /`.msi`/`setup.exe` for Windows.
+  - `.msi`/`setup.exe` for Windows.
 
 > **Note**: Linux versions are in development.
 
