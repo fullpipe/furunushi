@@ -21,10 +21,8 @@ jobs:
           # - platform: "ubuntu-22.04" # for Tauri v1 you could replace this with ubuntu-20.04.
           #   args: ""
 
-          # TODO: fix error: failed to run custom build command for `avfaudio2-sys v0.2.4`
-          # https://github.com/fullpipe/furunushi/actions/runs/14310225874/job/40103177427#step:8:753
-          # - platform: 'windows-latest'
-          #   args: ''
+          - platform: 'windows-latest'
+            args: ''
 
     runs-on: ${{ matrix.platform }}
     steps:
