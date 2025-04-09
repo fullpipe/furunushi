@@ -21,18 +21,14 @@
 
 Currently, only the **macOS** version is available for download. Get the latest build from the [Releases](https://github.com/fullpipe/furunushi/releases) section.
 
-### Requirements
-
-- macOS 10.13 or later.
-
 ### Instructions
 
-1. Go to the [Releases](https://github.com/fullpipe/furunushi/releases) section.
-2. Download the `.dmg` file for macOS.
-3. Open the file and drag the app into your "Applications" folder.
-4. Launch MusicTuner!
+- Go to the [Releases](https://github.com/fullpipe/furunushi/releases) section.
+- Download the
+  - `.dmg` for macOS
+  - /`.msi`/`setup.exe` for Windows.
 
-> **Note**: Windows and Linux versions are in development.
+> **Note**: Linux versions are in development.
 
 ## development
 
@@ -89,7 +85,8 @@ At the moment rules are not strict. Welcome!
 
 ## Roadmap
 
-- [ ] Windows and Linux support
+- [x] Windows
+- [ ] Linux support
 - [ ] App store release
 - [ ] UI/UX improvements, designers are welcome!
 - [ ] Metronome
