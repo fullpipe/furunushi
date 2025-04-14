@@ -28,7 +28,7 @@ Get the latest build from the [Releases](https://github.com/fullpipe/furunushi/r
   - `.dmg` for macOS
   - `.msi`/`setup.exe` for Windows.
 
-> **Note**: Linux versions are in development.
+> **Note**: Linux version is in development.
 
 ## development
 
