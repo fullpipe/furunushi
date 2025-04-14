@@ -19,7 +19,7 @@
 
 ## Installation
 
-Currently, only the **macOS** version is available for download. Get the latest build from the [Releases](https://github.com/fullpipe/furunushi/releases) section.
+Get the latest build from the [Releases](https://github.com/fullpipe/furunushi/releases) section.
 
 ### Instructions
 
