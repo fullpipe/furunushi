@@ -1,9 +1,9 @@
-import {CommonModule} from '@angular/common';
+
 import {Component, input} from '@angular/core';
 
 @Component({
   selector: 'app-deviation',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './deviation.component.html',
   styleUrl: './deviation.component.scss',
 })

@@ -1,5 +1,5 @@
 import {Component, effect, signal} from '@angular/core';
-import {AsyncPipe, CommonModule} from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {DeviationComponent} from '../../component/deviation/deviation.component';
 import {NoteComponent} from '../../component/note/note.component';
