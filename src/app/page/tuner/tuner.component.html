@@ -1,21 +1,24 @@
 <div class="tuning">
-  <label for="tuning">Tuning: </label>
-  <select class="input is-info is-large" id="tuning" required [(ngModel)]="tuning">
-    @for (item of selects; track item) {
-    <option value="{{ item }}">{{ item }}</option>
-    }
-  </select>
+  <label for="tuning">Tuning:</label>
+  <div class="nes-select">
+    <select required id="tuning" [(ngModel)]="tuning">
+      <option value="" disabled selected hidden>Select...</option>
+      @for (item of selects; track item) {
+        <option value="{{ item }}">{{ item }}</option>
+      }
+    </select>
+  </div>
 </div>
 
 @let note = tuner.note$ | async;
 <div class="note">
   @if (note) {
-  <div class="name">
-    <app-note [note]="note"></app-note>
-  </div>
-  <app-deviation [deviation]="note.deviation"></app-deviation>
+    <div class="name">
+      <app-note [note]="note"></app-note>
+    </div>
+    <app-deviation [deviation]="note.deviation"></app-deviation>
   } @else {
-  <div class="name"><app-note></app-note></div>
-  <app-deviation [deviation]="0" [active]="false"></app-deviation>
+    <div class="name"><app-note></app-note></div>
+    <app-deviation [deviation]="0" [active]="false"></app-deviation>
   }
 </div>

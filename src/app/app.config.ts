@@ -17,7 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     {
       provide: LazyStore,
-      useValue: new LazyStore('settings.json', {autoSave: true}),
+      useValue: new LazyStore('settings.json'),
     },
     provideAppInitializer(() => {
       const ts = inject(TuningService);

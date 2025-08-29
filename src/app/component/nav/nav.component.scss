@@ -5,7 +5,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
 
-  background: rgba($color: #fff, $alpha: 0.8);
+  // background: rgba(255, 255, 255, 0.8);
 
   transition: all 0.4s ease-out;
   opacity: 1;
@@ -21,15 +21,19 @@ nav {
   }
 
   a {
-    color: black;
+    color: var(--color-text);
     text-decoration: none;
     font-weight: bold;
     padding: 1em;
     width: 100%;
     text-align: center;
 
+    padding-top: calc(1em + 4px);
+
     &.active {
-      text-decoration: underline;
+      // text-decoration: underline;
+      padding-top: 1em;
+      border-top: 4px solid var(--color-text);
     }
 
     span {
@@ -47,8 +51,8 @@ nav {
         margin-right: 0.62em;
 
         border-radius: 100px;
-        background: darkcyan;
-        box-shadow: 0 0 15px darkcyan;
+        background: var(--color-success);
+        box-shadow: 0 0 15px var(--color-success);
         animation: grow 1.6s ease-in-out infinite;
 
         @keyframes grow {

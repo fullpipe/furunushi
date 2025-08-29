@@ -11,7 +11,7 @@
   position: relative;
 
   div {
-    width: 1px;
+    width: 4px;
     height: 45px;
     background: gray;
 
@@ -26,13 +26,20 @@
 
 .pin {
   position: absolute;
-  margin-left: calc(50% - 1px);
+  margin-left: calc(50% - 2px);
 
   top: 50%;
   transform: translateY(-50%);
   height: 66px;
-  width: 2px;
+  width: 4px;
   background: hotpink;
 
   transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  span {
+    position: relative;
+    display: block;
+    top: 120%;
+    margin-left: -0.5em;
+  }
 }

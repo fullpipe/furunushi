@@ -6,43 +6,83 @@
   <div class="field">
     <label class="label">Instrument:</label>
     <div class="radios">
-      <label class="radio">
-        <input type="radio" name="instrument" value="Organ" formControlName="instrument" />
-        Organ
+      <label>
+        <input
+          type="radio"
+          class="nes-radio"
+          name="instrument"
+          value="Organ"
+          formControlName="instrument"
+        />
+        <span>Organ</span>
       </label>
-      <label class="radio">
-        <input type="radio" name="instrument" value="Sine" formControlName="instrument" />
-        Sine
+      <label>
+        <input
+          type="radio"
+          class="nes-radio"
+          name="instrument"
+          value="Sine"
+          formControlName="instrument"
+        />
+        <span>Sine</span>
       </label>
     </div>
   </div>
   <div class="field">
     <label class="label">Chord:</label>
-    <div class="radios">
-      <label class="radio">
-        <input type="radio" name="chord" value="Minor" formControlName="chord" />
-        Minor
+    <div>
+      <label>
+        <input
+          type="radio"
+          class="nes-radio"
+          name="chord"
+          value="Minor"
+          formControlName="chord"
+        />
+        <span>Minor</span>
       </label>
       <label class="radio">
-        <input type="radio" name="chord" value="Pure" formControlName="chord" />
-        Pure
+        <input
+          type="radio"
+          class="nes-radio"
+          name="chord"
+          value="Pure"
+          formControlName="chord"
+        />
+        <span>Pure</span>
       </label>
       <label class="radio">
-        <input type="radio" name="chord" value="Major" formControlName="chord" />
-        Major
+        <input
+          type="radio"
+          class="nes-radio"
+          name="chord"
+          value="Major"
+          formControlName="chord"
+        />
+        <span>Major</span>
       </label>
     </div>
   </div>
-  <label class="checkbox">
-    <input type="checkbox" formControlName="chorus" name="chorus" />
-    chorus?
+
+  <label>
+    <input
+      type="checkbox"
+      class="nes-checkbox"
+      formControlName="chorus"
+      name="chorus"
+    />
+    <span>chorus?</span>
   </label>
 </form>
 
 <div class="actions">
   @if (drone.playing()) {
-  <button (click)="stop()">stop</button>
+    <button type="button" class="nes-btn is-primary" (click)="stop()">
+      stop
+    </button>
   } @else {
-  <button (click)="play()">play</button>
+    <button type="button" class="nes-btn is-primary" (click)="play()">
+      play
+    </button>
   }
 </div>

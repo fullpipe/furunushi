@@ -1,4 +1,10 @@
-import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  signal,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-mirror',
@@ -8,7 +14,7 @@ import {Component, ElementRef, OnDestroy, ViewChild} from '@angular/core';
 })
 export class MirrorComponent implements OnDestroy {
   @ViewChild('mirrorElement') mirrorElement!: ElementRef<HTMLVideoElement>;
-  mirroring = false;
+  mirroring = signal(false);
   stream: MediaStream | undefined;
 
   async ngOnInit() {
@@ -24,7 +30,7 @@ export class MirrorComponent implements OnDestroy {
     });
 
     this.mirrorElement.nativeElement.srcObject = this.stream;
-    this.mirroring = true;
+    this.mirroring.set(true);
   }
 
   ngOnDestroy(): void {

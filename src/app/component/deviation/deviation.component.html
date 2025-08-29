@@ -9,5 +9,7 @@
   }
 </div>
 @if (active()) {
-  <div class="pin" [style.left.%]="deviation()"></div>
+  <div class="pin" [style.left.%]="deviation()">
+    <span>{{ deviation() }}c</span>
+  </div>
 }

@@ -1,4 +1,3 @@
-
 import {Component, input} from '@angular/core';
 
 @Component({
@@ -8,7 +7,6 @@ import {Component, input} from '@angular/core';
   styleUrl: './deviation.component.scss',
 })
 export class DeviationComponent {
-  // @Input({required: true}) deviation: number
   readonly deviation = input.required<number>();
   readonly active = input(true);
 }

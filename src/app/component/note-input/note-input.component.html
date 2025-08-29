@@ -1,3 +1,17 @@
-<button (click)="minus()" [disabled]="midi() == MIN">-</button>
+<button
+  type="button"
+  class="nes-btn"
+  (click)="minus()"
+  [disabled]="midi() == MIN"
+>
+  -
+</button>
 <div class="note"><app-note [note]="note()"></app-note></div>
-<button (click)="plus()" [disabled]="midi() == MAX">+</button>
+<button
+  type="button"
+  class="nes-btn"
+  (click)="plus()"
+  [disabled]="midi() == MAX"
+>
+  +
+</button>
