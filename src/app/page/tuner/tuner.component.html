@@ -4,7 +4,7 @@
     <select required id="tuning" [(ngModel)]="tuning">
       <option value="" disabled selected hidden>Select...</option>
       @for (item of selects; track item) {
-        <option value="{{ item }}">{{ item }}</option>
+        <option value="{{ item }}">{{ item }} Hz</option>
       }
     </select>
   </div>
