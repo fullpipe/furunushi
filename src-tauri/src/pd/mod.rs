@@ -144,7 +144,7 @@ pub async fn init(controls: Receiver<Control>, sender: Sender<Note>) -> Result<(
     let host: cpal::Host = cpal::default_host();
     let device = host
         .default_input_device()
-        .expect("[Microphone] No output devices available");
+        .expect("[Microphone] No input devices available");
 
     info!("{}", device.name().unwrap());
 
