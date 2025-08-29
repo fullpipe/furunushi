@@ -21,7 +21,7 @@ export class MirrorComponent implements OnDestroy {
     this.stream = await navigator.mediaDevices.getUserMedia({
       audio: false,
       video: {
-        frameRate: {ideal: 25, max: 30},
+        frameRate: {ideal: 60},
         autoGainControl: false,
         noiseSuppression: false,
         backgroundBlur: false,
