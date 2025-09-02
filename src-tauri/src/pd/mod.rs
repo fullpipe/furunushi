@@ -15,8 +15,8 @@ use ts_rs::TS;
 
 pub mod commands;
 
-const POWER_THRESHOLD: f32 = 2.0;
-const CLARITY_THRESHOLD: f32 = 0.6;
+const POWER_THRESHOLD: f32 = 1.0;
+const CLARITY_THRESHOLD: f32 = 0.5;
 const DEFAULT_BASE: f32 = 440.0;
 
 #[derive(Debug, Clone, Copy, Serialize, TS)]
@@ -157,7 +157,7 @@ pub async fn init(controls: Receiver<Control>, sender: Sender<Note>) -> Result<(
     };
 
     let sample_rate: usize = config.sample_rate().0.try_into()?;
-    let bb: WavWriterHandle = Mutex::new(AllocRingBuffer::<f32>::new(sample_rate / 8));
+    let bb: WavWriterHandle = Mutex::new(AllocRingBuffer::<f32>::new(sample_rate / 4));
     let base = Arc::new(Mutex::new(DEFAULT_BASE));
     let dbase = Arc::clone(&base);
 
@@ -242,9 +242,9 @@ fn write_input_data<T, U>(
         return;
     }
 
-    // let mut detector = McLeodDetector::new(data.len(), data.len() / 2);
+    let mut detector = McLeodDetector::new(data.len(), data.len() / 2);
     // let mut detector = YINDetector::new(data.len(), data.len() / 2);
-    let mut detector = AutocorrelationDetector::new(data.len(), data.len() / 2);
+    // let mut detector = AutocorrelationDetector::new(data.len(), data.len() / 2);
 
     match detector.get_pitch(
         data.to_vec().as_slice(),
@@ -262,5 +262,5 @@ fn write_input_data<T, U>(
         },
     }
 
-    data.clear();
+    // data.clear();
 }
